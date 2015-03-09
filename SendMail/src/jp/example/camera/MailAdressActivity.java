@@ -96,7 +96,7 @@ public class MailAdressActivity extends ActionBarActivity {
                 ad = text+"@"+item;
             	Intent intent = getIntent();
             	path = intent.getStringExtra("filename");
-            	ad = "stad3415@gmail.com";
+            	//ad = "xxxxx@gmail.com";
             	switch(v.getId()){
             	case R.id.button5:
             	// ----- îÒìØä˙í êM
@@ -153,13 +153,13 @@ public class MailAdressActivity extends ActionBarActivity {
 	properties.put("mail.smtp.starttls.enable", "true");
 	Session session = Session.getDefaultInstance(properties, new javax.mail.Authenticator(){
 	protected PasswordAuthentication getPasswordAuthentication(){
-	return new PasswordAuthentication("stad3415@gmail.com", "android01");
+	return new PasswordAuthentication("xxxxx@gmail.com", "xxxxx");
 	}
 	});
 	MimeMessage message = new MimeMessage(session);
 	try {
-	String from = "stad3415@gmail.com";
-	String Sender = "stad3415@gmail.com";
+	String from = "xxxxx@gmail.com";
+	String Sender = "xxxxx@gmail.com";
 	String[] to = {ad};
 	message.setFrom(new InternetAddress(from));
 	message.setSender(new InternetAddress(Sender));
