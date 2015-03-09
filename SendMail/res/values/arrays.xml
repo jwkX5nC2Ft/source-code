@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spnEntries">
+        <item>docomo.ne.jp</item>
+        <item>ezweb.ne.jp</item>
+        <item>softbank.ne.jp</item>
+        <item>i.softbank.jp</item>
+        <item>d.vodafone.ne.jp</item>
+        <item>h.vodafone.ne.jp</item>
+        <item>t.vodafone.ne.jp</item>
+        <item>c.vodafone.ne.jp</item>
+        <item>r.vodafone.ne.jp</item>
+        <item>k.vodafone.ne.jp</item>
+        <item>n.vodafone.ne.jp</item>
+        <item>s.vodafone.ne.jp</item>
+        <item>q.vodafone.ne.jp</item>
+    </string-array>
+</resources>

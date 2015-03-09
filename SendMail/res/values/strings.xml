@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Camera</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="title_activity_mail_adress">MailAdressActivity</string>
+    <string name="spnPrompt">プロンプトのテキスト</string>
+    <string name="title_activity_image_view">ImageViewActivity</string>
+    <string name="title_activity_select_image">SelectImageActivity</string>
+    <string name="title_activity_camera">CameraActivity</string>
+    <string name="title_activity_camera_view">CameraView</string>
+    <string name="title_activity_camera_alert_dialog">CameraAlertDialog</string>
+    <string name="title_activity_camera_image_select">CameraImageSelectActivity</string>
+    <string name="title_activity_popup_window">PopupWindow</string>
+    <string name="title_activity_camera2">Camera2Activity</string>
+    <string name="title_activity_send_mail">SendMailActivity</string>
+    <string name="title_activity_camera3">Camera3Activity</string>
+    <string name="title_activity_finish">FinishActivity</string>
+    <string name="SpinnerPrompt">選択してください。</string>
+
+</resources>
