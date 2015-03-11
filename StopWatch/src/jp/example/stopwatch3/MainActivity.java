@@ -23,9 +23,11 @@ public class MainActivity extends ActionBarActivity {
     private long myStartTime = 0;   //開始時間保持
     private long myOffsetTime = 0;  //オフセットタイム
     private long myCurrentTime = 0;
+    private long myRestartTime = 0;
+    private long myPauseTime = 0;
     private LoopEngine loopEngine = new LoopEngine();
     long timer_cnt = 0;
-    private int i =0;
+    private int i = 0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +73,8 @@ public class MainActivity extends ActionBarActivity {
             handleMessage(new Message());
         }
         public void restart(){
+        	myRestartTime = System.currentTimeMillis();
+        	myPauseTime = myCurrentTime;
             this.isUpdate = true;
             handleMessage(new Message());
         }
@@ -90,8 +94,10 @@ public class MainActivity extends ActionBarActivity {
             if(this.isUpdate){
                 timer.setText(String.valueOf(sdf.format(myCurrentTime)));
                 sendMessageDelayed(obtainMessage(0), 1);
-                myCurrentTime = System.currentTimeMillis()-myStartTime;
-            }
+                if(i == 0) myCurrentTime = System.currentTimeMillis()-myStartTime;
+                else myCurrentTime = System.currentTimeMillis()-myRestartTime + myPauseTime;
+                }
+                
         }
     };
 
