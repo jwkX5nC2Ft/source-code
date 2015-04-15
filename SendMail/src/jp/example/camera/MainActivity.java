@@ -12,7 +12,9 @@ import android.view.MenuItem;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.view.View;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.widget.ImageView;
@@ -31,6 +33,7 @@ public class MainActivity extends ActionBarActivity {
         // ボタンのオブジェクトを取得
         Button btn4 = (Button) findViewById(R.id.button4);
         Button btn2 = (Button)findViewById(R.id.button2);
+        Button btn3 = (Button)findViewById(R.id.button0);
 
         // クリックイベントを受け取れるようにする
         btn2.setOnClickListener(new OnClickListener() {
@@ -50,6 +53,14 @@ public class MainActivity extends ActionBarActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,
                     Camera2Activity.class );
+                startActivity(intent);
+            }
+        });
+        btn3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this,
+                    Acount.class );
                 startActivity(intent);
             }
         });

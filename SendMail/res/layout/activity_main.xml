@@ -39,8 +39,17 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="62dp"
-        android:text="写真撮影＆送信アプリ"
+        android:text="写真撮影＆メール送信アプリ"
         android:textColor="#000000"
         android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/button0"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
+        android:text="初期設定" />
 
 </RelativeLayout>
