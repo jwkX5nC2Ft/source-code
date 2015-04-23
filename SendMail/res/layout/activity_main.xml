@@ -52,4 +52,12 @@
         android:layout_marginBottom="32dp"
         android:text="初期設定" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button0"
+        android:layout_centerHorizontal="true"
+        android:text="TextView" />
+
 </RelativeLayout>

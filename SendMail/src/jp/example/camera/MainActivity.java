@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.TextView;
 import android.view.View;
 import android.content.Context;
 import android.content.Intent;
@@ -21,14 +22,18 @@ import android.widget.ImageView;
 
 public class MainActivity extends ActionBarActivity {
 	
-	private static final int REQUEST_GALLERY = 0;
-	private ImageView imgView;
+	private String ad0;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		setTitle("TOP");
+		
+		SharedPreferences prefs = getSharedPreferences("myprefs", Context.MODE_PRIVATE);
+        ad0 = prefs.getString("mailadress0", "メールアドレスが設定されてません。初期設定を行ってください。");
+        TextView textView = (TextView)findViewById(R.id.textView2);
+        textView.setText(ad0);
 		
         // ボタンのオブジェクトを取得
         Button btn4 = (Button) findViewById(R.id.button4);
@@ -68,25 +73,6 @@ public class MainActivity extends ActionBarActivity {
 
 	}
 	
-	@Override
-	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-		// TODO Auto-generated method stub
-		if (requestCode == 1) {
-	        Bitmap img = (Bitmap) data.getExtras().get("data");
-	        //imgView.setImageBitmap(img);
-	    }
-		if(requestCode == REQUEST_GALLERY && resultCode == RESULT_OK) {
-			try {
-				InputStream in = getContentResolver().openInputStream(data.getData());
-				Bitmap img = BitmapFactory.decodeStream(in);
-				in.close();
-				// 選択した画像を表示
-				//imgView.setImageBitmap(img);
-				} catch (Exception e) {
-					
-				}
-			}
-		}
 	
 
 

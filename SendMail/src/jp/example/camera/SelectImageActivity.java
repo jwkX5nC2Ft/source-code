@@ -40,6 +40,7 @@ public class SelectImageActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_select_image);
+		setTitle("“Y•t‰æ‘œ‚Ì‘I‘ð");
 		
 		LinearLayout layout = new LinearLayout(this);
 		layout.setOrientation(LinearLayout.VERTICAL);
