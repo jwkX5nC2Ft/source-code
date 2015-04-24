@@ -6,11 +6,13 @@ import java.text.SimpleDateFormat;
 
 import android.support.v7.app.ActionBarActivity;
 import android.media.MediaScannerConnection;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.app.Activity;
+import android.content.ContentValues;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -29,6 +31,7 @@ public class Camera2Activity extends ActionBarActivity {
 	Button button1;
 	//Button button2;
 	ImageView imageView1;
+	private Uri mImageUri;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -44,18 +47,24 @@ public class Camera2Activity extends ActionBarActivity {
 	
 	protected void findViews(){
 		button1 = (Button)findViewById(R.id.button1);
-		imageView1 = (ImageView)findViewById(R.id.imageView1);
+		//imageView1 = (ImageView)findViewById(R.id.imageView1);
 	}
 	
 	protected void setListeners(){
 		button1.setOnClickListener(new OnClickListener(){
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(
-					MediaStore.ACTION_IMAGE_CAPTURE);
-				startActivityForResult(
-					intent,
-					REQUEST_CAPTURE_IMAGE);
+				String filename = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss", java.util.Locale.JAPAN).format(new Date()) + ".jpg";
+			    
+			    ContentValues values = new ContentValues();
+			    values.put(MediaStore.Images.Media.TITLE, filename);
+			    values.put(MediaStore.Images.Media.MIME_TYPE, "image/jpeg");
+			    mImageUri = getContentResolver().insert(
+			            MediaStore.Images.Media.EXTERNAL_CONTENT_URI, values);
+			    
+				Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+				intent.putExtra(MediaStore.EXTRA_OUTPUT, mImageUri);
+				startActivityForResult(intent,REQUEST_CAPTURE_IMAGE);
 			}
 		});
 		
@@ -72,33 +81,9 @@ public class Camera2Activity extends ActionBarActivity {
 		Intent data) {
 		if(REQUEST_CAPTURE_IMAGE == requestCode 
 			&& resultCode == Activity.RESULT_OK ){
-			Bitmap capturedImage = 
-				(Bitmap) data.getExtras().get("data");
-			imageView1.setImageBitmap(capturedImage);
-			String name = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss", java.util.Locale.JAPAN).format(new Date()) + ".jpg";
-            MediaStore.Images.Media.insertImage(getContentResolver(), capturedImage, name, null);
             
-            //SDカードへの保存
-            //String path = Environment.getExternalStorageDirectory() + "\\" +name;
-            //saveToSD(data,path);
-            
-
-            
-            Toast.makeText(Camera2Activity.this, "保存しました。", Toast.LENGTH_SHORT).show();
-            
-            File pathExternalPublicDir =
-            		Environment.getExternalStoragePublicDirectory(
-            		Environment.DIRECTORY_DCIM);
-            		// DCIMフォルダーのパス
-            String dir = pathExternalPublicDir.getPath();
-            
-            //データ受け渡し
-            //String name2 = dir + "\\" + name;
             Intent intent = new Intent(Camera2Activity.this, SelectImageActivity.class);
-            //intent.putExtra("filename",name2);
-            //intent.setType("image/*");
             startActivity(intent);
-            //
 		}
 	}
 	

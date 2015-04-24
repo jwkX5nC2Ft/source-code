@@ -38,8 +38,7 @@ public class Acount extends Activity {
                 editor.putString("password0", text2);
                 editor.apply();
 
-                Intent intent = new Intent(Acount.this,
-                    MainActivity.class );
+                Intent intent = new Intent(Acount.this,MainActivity.class );
                 startActivity(intent);
             }
         });

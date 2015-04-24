@@ -12,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.view.View;
 import android.content.Context;
 import android.content.Intent;
@@ -28,7 +29,7 @@ public class MainActivity extends ActionBarActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		setTitle("TOP");
+		setTitle("写真撮影＆写メール送信");
 		
 		SharedPreferences prefs = getSharedPreferences("myprefs", Context.MODE_PRIVATE);
         ad0 = prefs.getString("mailadress0", "メールアドレスが設定されてません。初期設定を行ってください。");
@@ -51,8 +52,6 @@ public class MainActivity extends ActionBarActivity {
                     startActivity(intent);
             }
         });
-        
-        
         btn4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -69,7 +68,6 @@ public class MainActivity extends ActionBarActivity {
                 startActivity(intent);
             }
         });
-        
 
 	}
 	

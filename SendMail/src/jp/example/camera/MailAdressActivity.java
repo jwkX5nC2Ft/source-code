@@ -59,6 +59,10 @@ public class MailAdressActivity extends ActionBarActivity {
 		setContentView(R.layout.activity_mail_adress);
 		setTitle("送信先を指定する");
 		
+		SharedPreferences prefs = getSharedPreferences("myprefs", Context.MODE_PRIVATE);
+        ad1 = prefs.getString("mailadress0", "");
+        pa1 = prefs.getString("password0", "");
+        
 		progressDialog = new ProgressDialog(this);
     	progressDialog.setTitle("メール送信");
     	progressDialog.setMessage("送信中");
@@ -108,9 +112,9 @@ public class MailAdressActivity extends ActionBarActivity {
                 final String item = (String)spinner.getSelectedItem();
                 ad = text+"@"+item;
                 
-                SharedPreferences prefs = getSharedPreferences("myprefs", Context.MODE_PRIVATE);
-                ad1 = prefs.getString("mailadress0", "");
-                pa1 = prefs.getString("password0", "");
+                //SharedPreferences prefs = getSharedPreferences("myprefs", Context.MODE_PRIVATE);
+                //ad1 = prefs.getString("mailadress0", "");
+                //pa1 = prefs.getString("password0", "");
                 
             	Intent intent = getIntent();
             	path = intent.getStringExtra("filename");
